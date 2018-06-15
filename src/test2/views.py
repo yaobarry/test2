@@ -10,9 +10,9 @@ import datetime
 def hello(request):
     return HttpResponse(r'hello world')
 
-def current_datetime(request):
+def current_datetime(request,temp_name):
     n=datetime.datetime.now()
-    return render_to_response('current_date.html',{'current_date': n})
+    return render_to_response(temp_name,{'current_date': n})
 
 
 def hours_ahead(request,offset):

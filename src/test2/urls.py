@@ -22,8 +22,8 @@ from books import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello),
-    path('time/', current_datetime),
+    path('time/', current_datetime,{'temp_name':'current_date.html'}),
     re_path(r'time/plus/(\d{1,2})/$', hours_ahead),
-    path('search/',views.search),
+    path('search/',views.search,{'temp_name1':'search_form.html','temp_name2':'search_results.html'}),
 
 ]

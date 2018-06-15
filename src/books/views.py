@@ -6,7 +6,7 @@ from books.models import Book
 def search_form(request):
     return render_to_response('search_form.html')
 
-def search(request):
+def search(request,temp_name1,temp_name2):
     errors = []
     if 'q' in request.GET:
         q = request.GET['q']
@@ -16,6 +16,6 @@ def search(request):
             errors.append('Please enter at most 20 characters')
         else:
             books = Book.objects.filter(title__icontains=q)
-            return render_to_response('search_results.html',{'books':books,'query':q})
-    return render_to_response('search_form.html',{'errors':errors})
+            return render_to_response(temp_name2,{'books':books,'query':q})
+    return render_to_response(temp_name1,{'errors':errors})
 
