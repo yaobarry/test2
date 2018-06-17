@@ -18,6 +18,8 @@ from django.urls import path
 from test2.views import *
 from django.urls.conf import re_path
 from books import views
+from books import models
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +27,6 @@ urlpatterns = [
     path('time/', current_datetime,{'temp_name':'current_date.html'}),
     re_path(r'time/plus/(\d{1,2})/$', hours_ahead),
     path('search/',views.search,{'temp_name1':'search_form.html','temp_name2':'search_results.html'}),
+    path('about/',views.PublisherList.as_view(),name='publisher'),
 
 ]

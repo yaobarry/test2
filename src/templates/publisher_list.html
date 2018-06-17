@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Publishers</h2>
+<table  border="1" frame="below" rules="rows" cellspacing="50">
+    <tr>
+        <th>
+            name
+        </th>
+        <th>
+            city
+        </th>
+    </tr>
+    <tr>
+{% for publisher in object_list %}
+        <td>{{ publisher.name }}</td>
+        <td>{{ publisher.city }}</td>
+{% endfor %}
+    </tr>
+</table>
+{% endblock %}
